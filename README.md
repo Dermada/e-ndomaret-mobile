@@ -1,53 +1,51 @@
-# Jawaban Pertanyaan README Tugas 7
+# Jawaban Pertanyaan README Tugas 8
 
-### 1. Jelaskan apa yang dimaksud dengan stateless widget dan stateful widget, dan jelaskan perbedaan dari keduanya.
+### 1. Apa kegunaan `const` di Flutter? Jelaskan apa keuntungan ketika menggunakan `const` pada kode Flutter. Kapan sebaiknya kita menggunakan `const`, dan kapan sebaiknya tidak digunakan?
 
-#### Stateless Widget
-Stateless widget adalah widget yang tidak memerlukan state yang dapat berubah. Artinya, properti widget ini tidak dapat berubah setelah diatur. Stateless widget bersifat immutable dan biasanya digunakan untuk konten statis.
+`const` di Flutter digunakan untuk mendeklarasikan nilai konstan yang tidak akan berubah. Keuntungan menggunakan `const` adalah meningkatkan performa aplikasi karena objek yang dideklarasikan sebagai `const` hanya dibuat sekali dan dapat digunakan kembali tanpa perlu membuat ulang. Sebaiknya menggunakan `const` ketika nilai tidak akan berubah selama runtime. Tidak perlu menggunakan `const` jika nilai tersebut akan berubah.
 
-#### Stateful Widget
-Stateful widget adalah widget yang dapat mengubah state-nya selama masa hidupnya. Artinya, widget ini dapat membangun ulang dirinya sendiri berdasarkan perubahan state-nya. Stateful widget bersifat mutable dan digunakan untuk konten dinamis yang dapat berubah sebagai respons terhadap interaksi pengguna atau peristiwa lainnya.
+### 2. Jelaskan dan bandingkan penggunaan *Column* dan *Row* pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
 
-#### Perbedaan
-- **Stateless Widget**: Immutable, tidak berubah setelah dibangun, digunakan untuk konten statis.
-- **Stateful Widget**: Mutable, dapat berubah selama masa hidupnya, digunakan untuk konten dinamis.
+*Column* digunakan untuk menata widget secara vertikal, sedangkan *Row* digunakan untuk menata widget secara horizontal. 
 
-### 2. Sebutkan widget apa saja yang kamu gunakan pada proyek ini dan jelaskan fungsinya.
+Contoh implementasi *Column*:
+```dart
+Column(
+    children: <Widget>[
+        Text('Item 1'),
+        Text('Item 2'),
+        Text('Item 3'),
+    ],
+)
+```
 
-- **MaterialApp**: Widget root dari aplikasi yang mengatur tema dan rute aplikasi.
-- **Scaffold**: Menyediakan struktur dasar untuk antarmuka visual aplikasi, termasuk AppBar dan body.
-- **AppBar**: App bar dengan desain material yang menampilkan judul dan dapat berisi widget lain seperti ikon atau tindakan.
-- **Padding**: Menambahkan padding di sekitar widget.
-- **Column**: Menyusun widget anak-anaknya secara vertikal.
-- **Row**: Menyusun widget anak-anaknya secara horizontal.
-- **Card**: Kartu dengan desain material yang dapat berisi konten dan tindakan tentang satu subjek.
-- **Text**: Menampilkan string teks dengan satu gaya.
-- **Icon**: Menampilkan ikon grafis.
-- **GridView**: Array 2D dari widget yang dapat digulir.
-- **InkWell**: Area persegi panjang dari widget Material yang merespons peristiwa sentuhan.
-- **SnackBar**: Pesan ringan dengan tindakan opsional yang ditampilkan sebentar di bagian bawah layar.
+Contoh implementasi *Row*:
+```dart
+Row(
+    children: <Widget>[
+        Text('Item 1'),
+        Text('Item 2'),
+        Text('Item 3'),
+    ],
+)
+```
 
-### 3. Apa fungsi dari setState()? Jelaskan variabel apa saja yang dapat terdampak dengan fungsi tersebut.
+### 3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman *form* yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
 
-#### Fungsi setState()
+elemen input yang digunakan pada *form* `moodentry_form.dart` adalah:
 
-Fungsi `setState()` digunakan dalam stateful widget untuk memperbarui state widget dan memicu pembangunan ulang pohon widget. Ketika `setState()` dipanggil, Flutter mengetahui bahwa state widget telah berubah dan perlu membangun ulang widget untuk mencerminkan state baru.
+`TextFormField` untuk input teks. Ada dua `TextFormField` yang terlihat dalam cuplikan kode:
+Satu untuk input "Mood".
+Satu lagi untuk input "Feelings".
+Elemen input ini digunakan untuk mengambil nilai dari pengguna dan memvalidasi input tersebut.
 
-#### Variabel yang Terpengaruh oleh setState()
-Setiap variabel yang merupakan bagian dari state widget dan digunakan dalam metode build dapat terpengaruh oleh `setState()`. Variabel-variabel ini biasanya didefinisikan dalam kelas `State` dari stateful widget.
+dan untuk elemen yang tidak dipakai diantaranya adalah:
+`Checkbox`, `Radio`, `Switch`, `Slider`, dan `DropdownButton`
 
-### 4. Jelaskan perbedaan antara const dengan final.
+### 4. Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
 
-- **const**: Digunakan untuk mendefinisikan konstanta waktu kompilasi. Nilainya harus diketahui pada waktu kompilasi dan tidak dapat berubah.
-- **final**: Digunakan untuk mendefinisikan konstanta waktu run-time. Nilainya diatur sekali dan tidak dapat diubah, tetapi dapat diatur pada waktu run-time.
+Untuk mengatur tema dalam aplikasi Flutter, kita dapat menggunakan `ThemeData` dan mendefinisikan tema di dalam `MaterialApp`. Tema dapat diimplementasikan dengan mendefinisikan warna, font, dan gaya lainnya yang konsisten di seluruh aplikasi. Ya, saya mengimplementasikan tema pada aplikasi yang saya buat untuk menjaga konsistensi tampilan.
 
-### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist-checklist di atas.
+### 5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
 
-1. Mengubah warna aplikasi pada main.dart
-2. Membuat stateless widget pada main.dart  di class MyHomePage
-3. Membuat card yang berisi Nama, NPM, Kelas pada class MyHomePage
-4. Membuat button card dengan icon di class baru bernama ItemHomePage
-5. Mengintegrasikan InfoCard dan Itemcard agar dapat ditampilkan dengan Widget build()
-6. Menambahkan properti `color` ke kelas `ItemHomepage` dan memperbarui widget `ItemCard` untuk menggunakan warna ini.
-7. Memodifikasi file `menu.dart` untuk menyertakan properti `color` baru dan memperbarui widget `ItemCard` untuk menggunakan warna ini.
-8. Menambahkan penjelasan dan jawaban ke file README untuk mendokumentasikan perbedaan antara stateless dan stateful widget, widget yang digunakan dalam proyek, fungsi `setState()`, dan perbedaan antara `const` dan `final`.
+Navigasi dalam aplikasi dengan banyak halaman dapat ditangani menggunakan `Navigator` dan `Route`. `Navigator` digunakan untuk berpindah antar halaman dengan metode seperti `push` dan `pop`.
