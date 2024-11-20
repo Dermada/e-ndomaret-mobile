@@ -1,6 +1,7 @@
+import 'package:e_ndomaret/screens/list_productentry.dart';
 import 'package:flutter/material.dart';
 import 'package:e_ndomaret/screens/menu.dart';
-import 'package:e_ndomaret/screens/moodentry_form.dart'; // Import halaman MoodEntryFormPage
+import 'package:e_ndomaret/screens/productentry_form.dart'; // Import halaman MoodEntryFormPage
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -60,9 +61,20 @@ class LeftDrawer extends StatelessWidget {
               setelah halaman MoodEntryFormPage sudah dibuat.
               */
               Navigator.pushReplacement(context, 
-              MaterialPageRoute(builder: (context) => MoodEntryFormPage()
+              MaterialPageRoute(builder: (context) => ProductEntryFormPage()
               ));
             },
+          ),
+          ListTile(
+              leading: const Icon(Icons.shopping_cart),
+              title: const Text('Product Entry'),
+              onTap: () {
+                  // Route menu ke halaman mood
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ProductEntryPage()),
+                  );
+              },
           ),
         ],
       ),

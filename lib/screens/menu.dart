@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:e_ndomaret/widgets/left_drawer.dart';
-import 'package:e_ndomaret/widgets/mood_card.dart';
+import 'package:e_ndomaret/widgets/product_card.dart';
 
 class MyHomePage extends StatelessWidget {
     MyHomePage({super.key});
@@ -10,7 +10,7 @@ class MyHomePage extends StatelessWidget {
     final String className = 'PBP A'; // Kelas
 
     final List<ItemHomepage> items = [
-         ItemHomepage("Lihat Products", Icons.shopping_cart, Colors.red),
+         ItemHomepage("Product Entry", Icons.shopping_cart, Colors.red),
          ItemHomepage("Add Products", Icons.add_shopping_cart, Colors.blue),
          ItemHomepage("Logout", Icons.logout, Colors.yellow),
      ];
